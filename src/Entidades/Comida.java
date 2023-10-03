@@ -64,6 +64,11 @@ public class Comida {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+
+    @Override
+    public String toString() {
+        return "Comida{" + "idComida=" + idComida + ", cantCal=" + cantCal + ", nombre=" + nombre + ", detalle=" + detalle + ", activo=" + activo + '}';
+    }
     
     
     

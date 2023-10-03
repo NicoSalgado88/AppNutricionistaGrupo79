@@ -77,6 +77,11 @@ public class Paciente {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+
+    @Override
+    public String toString() {
+        return "Paciente{" + "idPaciente=" + idPaciente + ", dni=" + dni + ", nombre=" + nombre + ", domicilio=" + domicilio + ", tel=" + tel + ", activo=" + activo + '}';
+    }
     
     
     

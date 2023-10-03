@@ -9,23 +9,24 @@ public class Dieta {
     private String nombre;
     private Paciente paciente;
     private LocalDate fInicio, fFin;
-    private double pInicial, pFinal;
+    private double pInicial, pFinal, pActual;
     private boolean activo;
 
     public Dieta() {
     }
 
-    public Dieta(String nombre, Paciente paciente, LocalDate fInicio, LocalDate fFin, double pInicial, double pFinal, boolean activo) {
+    public Dieta(String nombre, Paciente paciente, LocalDate fInicio, LocalDate fFin, double pInicial, double pFinal, double pActual, boolean activo) {
         this.nombre = nombre;
         this.paciente = paciente;
         this.fInicio = fInicio;
         this.fFin = fFin;
         this.pInicial = pInicial;
         this.pFinal = pFinal;
+        this.pActual=pActual;
         this.activo=activo;
     }
 
-    public Dieta(int idDieta, String nombre, Paciente paciente, LocalDate fInicio, LocalDate fFin, double pInicial, double pFinal, boolean activo) {
+    public Dieta(int idDieta, String nombre, Paciente paciente, LocalDate fInicio, LocalDate fFin, double pInicial, double pFinal ,double pActual, boolean activo) {
         this.idDieta = idDieta;
         this.nombre = nombre;
         this.paciente = paciente;
@@ -33,6 +34,7 @@ public class Dieta {
         this.fFin = fFin;
         this.pInicial = pInicial;
         this.pFinal = pFinal;
+        this.pActual=pActual;
         this.activo=activo;
     }
 
@@ -92,12 +94,27 @@ public class Dieta {
         this.pFinal = pFinal;
     }
 
+    public double getpActual() {
+        return pActual;
+    }
+
+    public void setpActual(double pActual) {
+        this.pActual = pActual;
+    }
+
+    
+    
     public boolean isActivo() {
         return activo;
     }
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    @Override
+    public String toString() {
+        return "Dieta{" + "idDieta=" + idDieta + ", nombre=" + nombre + ", paciente=" + paciente + ", fInicio=" + fInicio + ", fFin=" + fFin + ", pInicial=" + pInicial + ", pFinal=" + pFinal + ", pActual=" + pActual + ", activo=" + activo + '}';
     }
     
     

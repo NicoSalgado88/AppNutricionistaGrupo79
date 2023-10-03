@@ -27,7 +27,7 @@ public class PacienteData {
             ps.executeUpdate();
             ResultSet rs=ps.getGeneratedKeys();
             if(rs.next()){
-                paciente.setIdPaciente(rs.getInt("idPaciente"));
+                paciente.setIdPaciente(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Paciente Agregado");
             }
             ps.close();
@@ -107,6 +107,7 @@ public class PacienteData {
                 Paciente paciente=new Paciente();
                 paciente.setIdPaciente(rs.getInt("idPaciente"));
                 paciente.setNombre(rs.getString("nombre"));
+                paciente.setDni(rs.getInt("dni"));
                 paciente.setDomicilio(rs.getString("domicilio"));
                 paciente.setActivo(true);
                 pacientes.add(paciente);
