@@ -115,7 +115,7 @@ public class PacienteData {
             ps.close();
             
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a tabla PAciente");
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla Paciente");
         }
         return pacientes;
     }
