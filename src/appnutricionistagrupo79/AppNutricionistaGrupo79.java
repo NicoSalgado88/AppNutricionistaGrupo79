@@ -5,7 +5,7 @@ import AccesoADatos.*;
 import Entidades.*;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class AppNutricionistaGrupo79 {
 
@@ -15,9 +15,9 @@ public class AppNutricionistaGrupo79 {
     public static void main(String[] args) {
 
         Conexion.getConexion();
-        ArrayList<Telefono> tel = new ArrayList<>();
+//        ArrayList<Telefono> tel = new ArrayList<>();
 
-        Paciente p = new Paciente(1, 123456, "anti", "corrientes", tel, true);
+        Paciente p = new Paciente(1, 123456, "anti", "corrientes", 123456, true);
         PacienteData pd = new PacienteData();
 //       pd.guardarPaciente(p);
 //        System.out.println(p.toString());
@@ -27,9 +27,9 @@ public class AppNutricionistaGrupo79 {
 //        pd.modificarPaciente(p);
 
         // pd.eliminarPaciente(3);
-//        for (Paciente paciente : pd.listarPaciente()) {
-//            System.out.println(paciente.toString());
-//        }
+        for (Paciente paciente : pd.listarPaciente()) {
+            System.out.println(paciente.toString());
+        }
         Dieta d = new Dieta(4, "ensalda de pollo con papa", p, LocalDate.of(2023, Month.MARCH, 10), LocalDate.of(2023, Month.APRIL, 10), 95.5, 70.5, 95.5, true);
 //        DietaData dd = new DietaData();
         // dd.guardarDieta(d);

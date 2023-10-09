@@ -7,28 +7,47 @@ import java.util.ArrayList;
 public class Paciente {
     private int idPaciente, dni;
     private String nombre, domicilio;
-    private ArrayList<Telefono> tel;
+//    private ArrayList<Telefono> tel;
+    private int tel;
     private boolean activo;
 
     public Paciente() {
     }
 
-    public Paciente(int dni, String nombre, String domicilio, ArrayList<Telefono> tel, boolean activo) {
-        this.dni = dni;
-        this.nombre = nombre;
-        this.domicilio = domicilio;
-        this.tel = new ArrayList<>();
-        this.activo=activo;
-    }
-
-    public Paciente(int idPaciente, int dni, String nombre, String domicilio, ArrayList<Telefono> tel, boolean activo) {
+    public Paciente(int idPaciente, int dni, String nombre, String domicilio, int tel, boolean activo) {
         this.idPaciente = idPaciente;
         this.dni = dni;
         this.nombre = nombre;
         this.domicilio = domicilio;
-        this.tel = new ArrayList<>();
-        this.activo=activo;
+        this.tel = tel;
+        this.activo = activo;
     }
+
+    public Paciente(int dni, String nombre, String domicilio, int tel, boolean activo) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.domicilio = domicilio;
+        this.tel = tel;
+        this.activo = activo;
+    }
+
+    
+//    public Paciente(int dni, String nombre, String domicilio, ArrayList<Telefono> tel, boolean activo) {
+//        this.dni = dni;
+//        this.nombre = nombre;
+//        this.domicilio = domicilio;
+//        this.tel = new ArrayList<>();
+//        this.activo=activo;
+//    }
+//
+//    public Paciente(int idPaciente, int dni, String nombre, String domicilio, ArrayList<Telefono> tel, boolean activo) {
+//        this.idPaciente = idPaciente;
+//        this.dni = dni;
+//        this.nombre = nombre;
+//        this.domicilio = domicilio;
+//        this.tel = new ArrayList<>();
+//        this.activo=activo;
+//    }
 
     public int getIdPaciente() {
         return idPaciente;
@@ -54,6 +73,14 @@ public class Paciente {
         this.nombre = nombre;
     }
 
+    public int getTel() {
+        return tel;
+    }
+
+    public void setTel(int tel) {
+        this.tel = tel;
+    }
+
     public String getDomicilio() {
         return domicilio;
     }
@@ -62,13 +89,13 @@ public class Paciente {
         this.domicilio = domicilio;
     }
 
-    public ArrayList<Telefono> getTel() {
-        return tel;
-    }
-
-    public void setTel(ArrayList<Telefono> tel) {
-        this.tel = tel;
-    }
+//    public ArrayList<Telefono> getTel() {
+//        return tel;
+//    }
+//
+//    public void setTel(ArrayList<Telefono> tel) {
+//        this.tel = tel;
+//    }
 
     public boolean isActivo() {
         return activo;
@@ -80,7 +107,7 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return "Paciente{" + "idPaciente=" + idPaciente + ", dni=" + dni + ", nombre=" + nombre + ", domicilio=" + domicilio + ", tel=" + tel + ", activo=" + activo + '}';
+        return idPaciente+" - "+nombre;
     }
     
     
