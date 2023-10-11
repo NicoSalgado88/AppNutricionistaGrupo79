@@ -21,13 +21,17 @@ public class MainNutriApp extends javax.swing.JFrame {
     PacienteData pd = new PacienteData();
     TelefonoData td = new TelefonoData();
     private boolean ejecucion = true;
+    Paciente mod = new Paciente();
 
     public MainNutriApp() {
 //        jcbPacientes.setSelectedIndex(-1);
         initComponents();
         head();
         cargarCombox();
-
+        jcbPacientes.setSelectedIndex(-1);
+        jbGuardarMod.setVisible(false);
+        jbMod.setEnabled(false);
+        jbEliminar.setEnabled(false);
     }
 
     /**
@@ -48,6 +52,7 @@ public class MainNutriApp extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jbMod = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
+        jbReinicio = new javax.swing.JButton();
         panelCarga = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jtNombre = new javax.swing.JTextField();
@@ -59,6 +64,7 @@ public class MainNutriApp extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jbGuardar = new javax.swing.JButton();
+        jbGuardarMod = new javax.swing.JButton();
         tabDietas = new javax.swing.JTabbedPane();
         tabComidas = new javax.swing.JTabbedPane();
         jTabbedPane4 = new javax.swing.JTabbedPane();
@@ -90,7 +96,6 @@ public class MainNutriApp extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaPacientes);
 
-        jcbPacientes.setSelectedIndex(-1);
         jcbPacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jcbPacientes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -108,6 +113,22 @@ public class MainNutriApp extends javax.swing.JFrame {
         });
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
+
+        jbReinicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/reinicio1_preview_rev_1.png"))); // NOI18N
+        jbReinicio.setBorder(null);
+        jbReinicio.setBorderPainted(false);
+        jbReinicio.setContentAreaFilled(false);
+        jbReinicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbReinicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbReinicioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelInfoLayout = new javax.swing.GroupLayout(panelInfo);
         panelInfo.setLayout(panelInfoLayout);
@@ -123,9 +144,11 @@ public class MainNutriApp extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(jcbPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(3, 3, 3)
+                        .addComponent(jbReinicio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
                         .addComponent(jbMod)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbEliminar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -138,7 +161,10 @@ public class MainNutriApp extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jcbPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbMod)
-                    .addComponent(jbEliminar))
+                    .addComponent(jbEliminar)
+                    .addGroup(panelInfoLayout.createSequentialGroup()
+                        .addComponent(jbReinicio, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
                 .addContainerGap())
@@ -159,6 +185,13 @@ public class MainNutriApp extends javax.swing.JFrame {
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbGuardarActionPerformed(evt);
+            }
+        });
+
+        jbGuardarMod.setText("Guardar modificación");
+        jbGuardarMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarModActionPerformed(evt);
             }
         });
 
@@ -187,6 +220,8 @@ public class MainNutriApp extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(451, 451, 451)
                 .addComponent(jbGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbGuardarMod)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -205,7 +240,9 @@ public class MainNutriApp extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel7))
                 .addGap(110, 110, 110)
-                .addComponent(jbGuardar)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbGuardar)
+                    .addComponent(jbGuardarMod))
                 .addContainerGap(308, Short.MAX_VALUE))
         );
 
@@ -294,6 +331,8 @@ public class MainNutriApp extends javax.swing.JFrame {
             if (ejecucion) {
                 ejecucion = false;
             } else {
+                jbMod.setEnabled(true);
+                jbEliminar.setEnabled(true);
                 modelo.setRowCount(0);
                 Paciente pac = (Paciente) jcbPacientes.getSelectedItem();
                 for (Paciente p : pd.listarPaciente()) {
@@ -312,6 +351,18 @@ public class MainNutriApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jcbPacientesItemStateChanged
 
     private void jbModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModActionPerformed
+        tabPacientes.setSelectedIndex(1);
+        mod = (Paciente) jcbPacientes.getSelectedItem();
+        jtNombre.setText(mod.getNombre());
+        jtDomicilio.setText(mod.getDomicilio());
+        jtDni.setText(String.valueOf(mod.getDni()));
+        jtTelefono.setText(String.valueOf(mod.getTel()));
+        jbGuardarMod.setVisible(true);
+        jbGuardar.setVisible(false);
+        jbMod.setEnabled(false);
+        jbEliminar.setEnabled(false);
+        llenarTabla();
+        jcbPacientes.setSelectedIndex(-1);
 
     }//GEN-LAST:event_jbModActionPerformed
 
@@ -327,17 +378,68 @@ public class MainNutriApp extends javax.swing.JFrame {
             if (!jtDomicilio.getText().isEmpty()) {
                 p.setDomicilio(jtDomicilio.getText());
             }
-            if(!jtTelefono.getText().isEmpty()){
+            if (!jtTelefono.getText().isEmpty()) {
                 p.setTel(Integer.parseInt(jtTelefono.getText()));
+                p.setActivo(true);
                 pd.guardarPaciente(p);
                 limpiar();
             } else {
                 JOptionPane.showMessageDialog(this, "Uno o más campos se encuentran vacios", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El campo 'DNI' solo admite números", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Los campos 'DNI' y 'Teléfono' solo admiten números", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbGuardarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarModActionPerformed
+
+        try {
+            if (!jtDni.getText().isEmpty()) {
+                mod.setDni(Integer.parseInt(jtDni.getText()));
+            }
+            if (!jtNombre.getText().isEmpty()) {
+                mod.setNombre(jtNombre.getText());
+            }
+            if (!jtDomicilio.getText().isEmpty()) {
+                mod.setDomicilio(jtDomicilio.getText());
+            }
+            if (!jtTelefono.getText().isEmpty()) {
+                mod.setTel(Integer.parseInt(jtTelefono.getText()));
+                mod.setActivo(true);
+                pd.modificarPaciente(mod);
+                mod = null;
+                limpiar();
+                jbGuardarMod.setVisible(false);
+                jbGuardar.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Uno o más campos se encuentran vacios", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Los campos 'DNI' y 'Teléfono' solo admiten números", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jbGuardarModActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        mod = (Paciente) jcbPacientes.getSelectedItem();
+        int eliminar = JOptionPane.showConfirmDialog(null, "Desea eliminar al paciente " + mod.getNombre(), "¿Está seguro?",
+                JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (eliminar == JOptionPane.OK_OPTION) {
+            pd.eliminarPaciente(mod.getIdPaciente());
+            cargarCombox();
+            llenarTabla();
+            jcbPacientes.setSelectedIndex(-1);
+            jbMod.setEnabled(false);
+            jbEliminar.setEnabled(false);
+        }
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbReinicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbReinicioActionPerformed
+        cargarCombox();
+        jcbPacientes.setSelectedIndex(-1);
+        llenarTabla();
+        jbMod.setEnabled(false);
+        jbEliminar.setEnabled(false);
+    }//GEN-LAST:event_jbReinicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,9 +453,9 @@ public class MainNutriApp extends javax.swing.JFrame {
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
             FlatSolarizedLightIJTheme.setup();
-            UIManager.put( "Button.arc", 999 );
-            UIManager.put( "Component.arc", 999 );
-            UIManager.put( "TextComponent.arc", 999 );
+            UIManager.put("Button.arc", 999);
+            UIManager.put("Component.arc", 999);
+            UIManager.put("TextComponent.arc", 999);
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }
@@ -384,7 +486,9 @@ public class MainNutriApp extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane6;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbGuardar;
+    private javax.swing.JButton jbGuardarMod;
     private javax.swing.JButton jbMod;
+    private javax.swing.JButton jbReinicio;
     private javax.swing.JComboBox<Paciente> jcbPacientes;
     private javax.swing.JTextField jtDni;
     private javax.swing.JTextField jtDomicilio;
@@ -409,6 +513,7 @@ public class MainNutriApp extends javax.swing.JFrame {
     }
 
     private void llenarTabla() {
+        modelo.setRowCount(0);
         for (Paciente p : pd.listarPaciente()) {
             modelo.addRow(new Object[]{
                 p.getIdPaciente(),
@@ -421,11 +526,12 @@ public class MainNutriApp extends javax.swing.JFrame {
     }
 
     private void cargarCombox() {
+        jcbPacientes.removeAllItems();
         for (Paciente p : pd.listarPaciente()) {
             jcbPacientes.addItem(p);
         }
     }
-    
+
     private void limpiar() {
         jtDni.setText("");
         jtNombre.setText("");
