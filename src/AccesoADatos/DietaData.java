@@ -101,7 +101,7 @@ public class DietaData {
     }
     
         public Dieta buscarDietaPorPaciente(int idPaciente){
-        String sql="SELECT nombre, idDieta, fechaInicial, fechaFinal, pesoInicial, pesoFinal, pesoActual, estado FROM dieta WHERE idPaciente=? AND estado=1";
+        String sql="SELECT dieta.nombre, idDieta, fechaInicial, fechaFinal, pesoInicial, pesoFinal, pesoActual, estado FROM dieta WHERE idPaciente=? AND estado=1";
         Dieta dieta=null;
         PacienteData pd=new PacienteData();
         PreparedStatement ps=null;
