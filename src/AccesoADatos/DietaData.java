@@ -3,6 +3,8 @@ package AccesoADatos;
 import Entidades.Dieta;
 import Entidades.Paciente;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class DietaData {
@@ -98,6 +100,39 @@ public class DietaData {
         return dieta;
     }
     
+        public Dieta buscarDietaPorPaciente(int idPaciente){
+        String sql="SELECT nombre, idDieta, fechaInicial, fechaFinal, pesoInicial, pesoFinal, pesoActual, estado FROM dieta WHERE idPaciente=? AND estado=1";
+        Dieta dieta=null;
+        PacienteData pd=new PacienteData();
+        PreparedStatement ps=null;
+        Paciente paciente=pd.buscarPaciente(idPaciente);
+        try {
+            
+            ps=con.prepareStatement(sql);
+            ps.setInt(1, idPaciente);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+                paciente.setIdPaciente(idPaciente);
+                dieta=new Dieta();
+                dieta.setIdDieta(rs.getInt("idDieta"));
+                dieta.setPaciente(paciente);
+                dieta.setNombre(rs.getString("nombre"));
+                dieta.setfInicio(rs.getDate("fechaInicial").toLocalDate());
+                dieta.setfFin(rs.getDate("fechaFinal").toLocalDate());
+                dieta.setpInicial(rs.getDouble("pesoInicial"));
+                dieta.setpFinal(rs.getDouble("pesoFinal"));                                           
+                dieta.setpActual(rs.getDouble("pesoActual"));                                           
+                dieta.setActivo(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "La dieta no existe");
+            }
+            ps.close();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla Dieta");
+        }
+        return dieta;
+    }
     
     public void eliminarDieta(int id) {
         String sql = "UPDATE dieta SET estado=0 WHERE idDieta=?";
@@ -112,5 +147,57 @@ public class DietaData {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al acceder a tabla Dieta");
         }
+    }
+    
+    public List<Paciente> listarPacientesConDieta(){
+        ArrayList <Paciente> conDieta=new ArrayList<>();
+        String sql="SELECT  paciente.idPaciente, paciente.nombre, dni, domicilio, telefono FROM dieta JOIN paciente "
+                + "ON paciente.idPaciente=dieta.idPaciente WHERE paciente.estado=1 AND dieta.estado=1";
+        PreparedStatement ps=null;
+        try {
+            ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()) {
+                Paciente paciente=new Paciente();
+                paciente.setIdPaciente(rs.getInt("idPaciente"));
+                paciente.setNombre(rs.getString("nombre"));
+                paciente.setDni(rs.getInt("dni"));
+                paciente.setDomicilio(rs.getString("domicilio"));
+                paciente.setTel(rs.getInt("telefono"));
+                paciente.setActivo(true);
+                conDieta.add(paciente);
+            }
+            ps.close();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla Paciente");
+        }
+        return conDieta;
+    }
+    
+    public List<Paciente> listarPacientesSinDieta(){
+        ArrayList <Paciente> sinDieta=new ArrayList<>();
+        String sql="SELECT  paciente.idPaciente, paciente.nombre, dni, domicilio, telefono FROM paciente "
+                + "WHERE paciente.idPaciente NOT IN (SELECT dieta.idPaciente FROM dieta)";
+        PreparedStatement ps=null;
+        try {
+            ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()) {
+                Paciente paciente=new Paciente();
+                paciente.setIdPaciente(rs.getInt("idPaciente"));
+                paciente.setNombre(rs.getString("nombre"));
+                paciente.setDni(rs.getInt("dni"));
+                paciente.setDomicilio(rs.getString("domicilio"));
+                paciente.setTel(rs.getInt("telefono"));
+                paciente.setActivo(true);
+                sinDieta.add(paciente);
+            }
+            ps.close();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla Paciente");
+        }
+        return sinDieta;
     }
 }
