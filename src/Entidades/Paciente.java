@@ -1,10 +1,9 @@
-
 package Entidades;
 
 import java.util.ArrayList;
 
-
 public class Paciente {
+
     private int idPaciente, dni;
     private String nombre, domicilio;
 //    private ArrayList<Telefono> tel;
@@ -31,7 +30,6 @@ public class Paciente {
         this.activo = activo;
     }
 
-    
 //    public Paciente(int dni, String nombre, String domicilio, ArrayList<Telefono> tel, boolean activo) {
 //        this.dni = dni;
 //        this.nombre = nombre;
@@ -48,7 +46,6 @@ public class Paciente {
 //        this.tel = new ArrayList<>();
 //        this.activo=activo;
 //    }
-
     public int getIdPaciente() {
         return idPaciente;
     }
@@ -96,7 +93,6 @@ public class Paciente {
 //    public void setTel(ArrayList<Telefono> tel) {
 //        this.tel = tel;
 //    }
-
     public boolean isActivo() {
         return activo;
     }
@@ -107,9 +103,7 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return idPaciente+" - "+nombre;
+        return idPaciente + " - " + nombre;
     }
-    
-    
-    
+
 }

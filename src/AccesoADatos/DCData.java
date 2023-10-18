@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package AccesoADatos;
 
 import Entidades.*;
@@ -11,15 +10,15 @@ import java.sql.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-
 public class DCData {
+
     private Connection con = null;
 
     public DCData() {
         con = Conexion.getConexion();
     }
-    
-    public void guardarDC(DietaComida dc){
+
+    public void guardarDC(DietaComida dc) {
         String sql = "INSERT INTO dietacomida (idComida, idDieta) VALUES (?, ?)";
 
         try {
@@ -40,7 +39,7 @@ public class DCData {
             JOptionPane.showMessageDialog(null, "Error al acceder a tabla Dieta-Comida" + e.getMessage());
         }
     }
-    
+
     public void modificarDC(DietaComida dc) {
         String sql = "UPDATE dietacomida SET idComida=?, idDieta=? WHERE idDC=?";
 
@@ -58,7 +57,7 @@ public class DCData {
             JOptionPane.showMessageDialog(null, "Error al modificar Dieta-Comida\n" + e.getMessage());
         }
     }
-    
+
     public void eliminarDC(int idDC) {
         String sql = "DELETE FROM dietacomida WHERE idDC=?";
         try {
@@ -74,7 +73,7 @@ public class DCData {
         }
     }
     //SELECT dieta.nombre, comida.nombre FROM `dietacomida` JOIN dieta ON dietacomida.idDieta=dieta.idDieta JOIN comida ON dietacomida.idComida=comida.idComida
-    
+
     public List<Comida> listarComidaPorDieta(int idDieta) {
         String sql = "SELECT comida.idComida, comida.nombre, detalle, cantCalorias FROM comida JOIN dietacomida ON dietacomida.idComida=comida.idComida "
                 + "JOIN dieta ON dietacomida.idDieta=dieta.idDieta WHERE dietacomida.idDieta=?";
@@ -100,7 +99,7 @@ public class DCData {
         }
         return comidas;
     }
-    
+
     public List<Dieta> listarDietaPorComida(int idComida) {
         String sql = "SELECT dieta.idDieta, dieta.nombre, idPaciente, fechaInicial, fechaFinal, pesoFinal, pesoInicial, pesoActual, dieta.estado "
                 + "FROM dieta JOIN dietacomida ON dietacomida.idDieta=dieta.idDieta JOIN comida ON dietacomida.idComida=comida.idComida "
@@ -113,7 +112,7 @@ public class DCData {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Dieta d = new Dieta();
-                Paciente p=new Paciente();
+                Paciente p = new Paciente();
                 d.setIdDieta(rs.getInt("idDieta"));
                 d.setNombre(rs.getString("nombre"));
                 d.setPaciente(p);
@@ -121,8 +120,8 @@ public class DCData {
                 d.setfInicio(rs.getDate("fechaInicial").toLocalDate());
                 d.setfFin(rs.getDate("fechaFinal").toLocalDate());
                 d.setpInicial(rs.getDouble("pesoInicial"));
-                d.setpFinal(rs.getDouble("pesoFinal"));                                           
-                d.setpActual(rs.getDouble("pesoActual"));                                           
+                d.setpFinal(rs.getDouble("pesoFinal"));
+                d.setpActual(rs.getDouble("pesoActual"));
                 d.setActivo(rs.getBoolean("estado"));
                 dietas.add(d);
             }

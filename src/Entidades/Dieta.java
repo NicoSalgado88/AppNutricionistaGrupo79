@@ -1,10 +1,9 @@
-
 package Entidades;
 
 import java.time.LocalDate;
 
-
 public class Dieta {
+
     private int idDieta;
     private String nombre;
     private Paciente paciente;
@@ -22,11 +21,11 @@ public class Dieta {
         this.fFin = fFin;
         this.pInicial = pInicial;
         this.pFinal = pFinal;
-        this.pActual=pActual;
-        this.activo=activo;
+        this.pActual = pActual;
+        this.activo = activo;
     }
 
-    public Dieta(int idDieta, String nombre, Paciente paciente, LocalDate fInicio, LocalDate fFin, double pInicial, double pFinal ,double pActual, boolean activo) {
+    public Dieta(int idDieta, String nombre, Paciente paciente, LocalDate fInicio, LocalDate fFin, double pInicial, double pFinal, double pActual, boolean activo) {
         this.idDieta = idDieta;
         this.nombre = nombre;
         this.paciente = paciente;
@@ -34,8 +33,8 @@ public class Dieta {
         this.fFin = fFin;
         this.pInicial = pInicial;
         this.pFinal = pFinal;
-        this.pActual=pActual;
-        this.activo=activo;
+        this.pActual = pActual;
+        this.activo = activo;
     }
 
     public int getIdDieta() {
@@ -102,8 +101,6 @@ public class Dieta {
         this.pActual = pActual;
     }
 
-    
-    
     public boolean isActivo() {
         return activo;
     }
@@ -116,7 +113,5 @@ public class Dieta {
     public String toString() {
         return "Dieta{" + "idDieta=" + idDieta + ", nombre=" + nombre + ", paciente=" + paciente + ", fInicio=" + fInicio + ", fFin=" + fFin + ", pInicial=" + pInicial + ", pFinal=" + pFinal + ", pActual=" + pActual + ", activo=" + activo + '}';
     }
-    
-    
-    
+
 }

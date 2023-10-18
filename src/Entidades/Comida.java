@@ -1,8 +1,7 @@
-
 package Entidades;
 
-
 public class Comida {
+
     private int idComida, cantCal;
     private String nombre, detalle;
     private boolean activo;
@@ -14,7 +13,7 @@ public class Comida {
         this.cantCal = cantCal;
         this.nombre = nombre;
         this.detalle = detalle;
-        this.activo=activo;
+        this.activo = activo;
     }
 
     public Comida(int idComida, int cantCal, String nombre, String detalle, boolean activo) {
@@ -22,7 +21,7 @@ public class Comida {
         this.cantCal = cantCal;
         this.nombre = nombre;
         this.detalle = detalle;
-        this.activo=activo;
+        this.activo = activo;
     }
 
     public int getIdComida() {
@@ -69,7 +68,5 @@ public class Comida {
     public String toString() {
         return "Comida{" + "idComida=" + idComida + ", cantCal=" + cantCal + ", nombre=" + nombre + ", detalle=" + detalle + ", activo=" + activo + '}';
     }
-    
-    
-    
+
 }

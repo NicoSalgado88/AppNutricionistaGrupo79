@@ -100,27 +100,27 @@ public class PacienteData {
     }
     
       public List<Paciente> listarPaciente(){
-        String sql="SELECT  idPaciente, nombre, dni, domicilio, telefono, estado FROM paciente WHERE estado=1";
-        ArrayList <Paciente> pacientes=new ArrayList<>();
-        PreparedStatement ps=null;
-        try {
-            ps=con.prepareStatement(sql);
-            ResultSet rs=ps.executeQuery();
-            while(rs.next()) {
-                Paciente paciente=new Paciente();
-                paciente.setIdPaciente(rs.getInt("idPaciente"));
-                paciente.setNombre(rs.getString("nombre"));
-                paciente.setDni(rs.getInt("dni"));
-                paciente.setDomicilio(rs.getString("domicilio"));
-                paciente.setTel(rs.getInt("telefono"));
-                paciente.setActivo(true);
-                pacientes.add(paciente);
-            }
-            ps.close();
-            
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a tabla Paciente");
-        }
-        return pacientes;
+          String sql = "SELECT  idPaciente, nombre, dni, domicilio, telefono, estado FROM paciente WHERE estado=1";
+          ArrayList<Paciente> pacientes = new ArrayList<>();
+          PreparedStatement ps = null;
+          try {
+              ps = con.prepareStatement(sql);
+              ResultSet rs = ps.executeQuery();
+              while (rs.next()) {
+                  Paciente paciente = new Paciente();
+                  paciente.setIdPaciente(rs.getInt("idPaciente"));
+                  paciente.setNombre(rs.getString("nombre"));
+                  paciente.setDni(rs.getInt("dni"));
+                  paciente.setDomicilio(rs.getString("domicilio"));
+                  paciente.setTel(rs.getInt("telefono"));
+                  paciente.setActivo(true);
+                  pacientes.add(paciente);
+              }
+              ps.close();
+
+          } catch (SQLException e) {
+              JOptionPane.showMessageDialog(null, "Error al acceder a tabla Paciente");
+          }
+          return pacientes;
     }
 }
