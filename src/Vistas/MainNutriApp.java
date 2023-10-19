@@ -37,6 +37,7 @@ public class MainNutriApp extends javax.swing.JFrame {
     private boolean ejecucion = true;
     Dieta modD = new Dieta();
     Paciente modP = new Paciente();
+    Comida modC=new Comida();
 
     public MainNutriApp() {
         initComponents();
@@ -49,6 +50,7 @@ public class MainNutriApp extends javax.swing.JFrame {
         jbMod.setEnabled(false);
         jbEliminar.setEnabled(false);
         jbGuardarModDieta.setVisible(false);
+        jbGuardarModComida.setVisible(false);
     }
 
     /**
@@ -136,6 +138,15 @@ public class MainNutriApp extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jbModComida = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jtNombreComida = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jtDetalleComida = new javax.swing.JTextArea();
+        jtCaloriasComida = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jbGuardarComida = new javax.swing.JButton();
+        jbGuardarModComida = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         SliderLD = new javax.swing.JSlider();
@@ -149,7 +160,12 @@ public class MainNutriApp extends javax.swing.JFrame {
         contenedorTab.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
 
         tabPacientes.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        tabPacientes.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 16)); // NOI18N
+        tabPacientes.setMinimumSize(new java.awt.Dimension(164, 164));
 
+        infoPaciente.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        tablaPacientes.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         tablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -163,6 +179,7 @@ public class MainNutriApp extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaPacientes);
 
+        jcbPacientes.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jcbPacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jcbPacientes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -170,8 +187,10 @@ public class MainNutriApp extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel2.setText("Paciente");
 
+        jbMod.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbMod.setText("Modificar");
         jbMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,6 +198,7 @@ public class MainNutriApp extends javax.swing.JFrame {
             }
         });
 
+        jbEliminar.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbEliminar.setText("Eliminar");
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,7 +232,7 @@ public class MainNutriApp extends javax.swing.JFrame {
                 .addComponent(jbMod)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbEliminar)
-                .addContainerGap(588, Short.MAX_VALUE))
+                .addContainerGap(598, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPacienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
@@ -232,20 +252,33 @@ public class MainNutriApp extends javax.swing.JFrame {
                         .addComponent(jbMod)
                         .addComponent(jbEliminar)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         tabPacientes.addTab("Info", infoPaciente);
         infoPaciente.getAccessibleContext().setAccessibleName("InfoPacientes");
 
+        jtNombre.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jtDni.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jtDomicilio.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jtTelefono.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel4.setText("Nombre y Apellido");
 
+        jLabel5.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel5.setText("DNI");
 
+        jLabel6.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel6.setText("Domicilio");
 
+        jLabel7.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel7.setText("Teléfono");
 
+        jbGuardar.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +286,7 @@ public class MainNutriApp extends javax.swing.JFrame {
             }
         });
 
+        jbGuardarMod.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbGuardarMod.setText("Guardar modificación");
         jbGuardarMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,7 +307,7 @@ public class MainNutriApp extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jtDni)
                     .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -311,7 +345,7 @@ public class MainNutriApp extends javax.swing.JFrame {
                 .addComponent(jbGuardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbGuardarMod)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout cargaPacienteLayout = new javax.swing.GroupLayout(cargaPaciente);
@@ -332,9 +366,12 @@ public class MainNutriApp extends javax.swing.JFrame {
         tabPacientes.getAccessibleContext().setAccessibleName("Pacientes");
 
         tabDietas.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        tabDietas.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 16)); // NOI18N
 
+        jLabel8.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel8.setText("Paciente");
 
+        jcbPacienteDieta.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jcbPacienteDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jcbPacienteDieta.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -342,6 +379,7 @@ public class MainNutriApp extends javax.swing.JFrame {
             }
         });
 
+        tablaComidaPaciente.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         tablaComidaPaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -358,17 +396,19 @@ public class MainNutriApp extends javax.swing.JFrame {
         panelPacienteDieta.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         panelPacienteDieta.setForeground(new java.awt.Color(153, 153, 153));
 
-        nombrePaciente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        nombrePaciente.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 16)); // NOI18N
         nombrePaciente.setText("jLabel9");
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setText("-");
 
-        nombreDieta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        nombreDieta.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 16)); // NOI18N
         nombreDieta.setText("jLabel9");
 
+        jLabel10.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel10.setText("Comienzo:");
 
+        jbModDieta.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbModDieta.setText("Modificar");
         jbModDieta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -376,22 +416,31 @@ public class MainNutriApp extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel11.setText("Fin:");
 
+        jLabel12.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel12.setText("Peso inicial");
 
+        jLabel13.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel13.setText("Peso actual");
 
+        jLabel14.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel14.setText("Peso objetivo");
 
+        pesoInicial.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         pesoInicial.setText("jLabel15");
 
+        pesoActual.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         pesoActual.setText("jLabel16");
 
+        pesoFinal.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         pesoFinal.setText("jLabel17");
 
+        fechaInicio.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         fechaInicio.setText("jLabel15");
 
+        fechaFin.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         fechaFin.setText("jLabel15");
 
         javax.swing.GroupLayout panelPacienteDietaLayout = new javax.swing.GroupLayout(panelPacienteDieta);
@@ -433,7 +482,7 @@ public class MainNutriApp extends javax.swing.JFrame {
                     .addGroup(panelPacienteDietaLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(jbModDieta)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         panelPacienteDietaLayout.setVerticalGroup(
             panelPacienteDietaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,9 +515,10 @@ public class MainNutriApp extends javax.swing.JFrame {
                 .addGap(39, 39, 39))
         );
 
-        jLabel15.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel15.setText("Detalle dieta");
 
+        jbEditComidas.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbEditComidas.setText("Editar comidas");
         jbEditComidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -520,25 +570,47 @@ public class MainNutriApp extends javax.swing.JFrame {
                     .addGroup(infoDietaLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(panelPacienteDieta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         tabDietas.addTab("Info", infoDieta);
 
+        jLabel16.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel16.setText("Nombre dieta");
 
+        jLabel17.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel17.setText("Paciente");
 
+        jLabel18.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel18.setText("Fecha de inicio");
 
+        jLabel19.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel19.setText("Fecha objetivo");
 
+        jLabel20.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel20.setText("Peso inicial");
 
+        jLabel21.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel21.setText("Peso actual");
 
+        jLabel22.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel22.setText("Peso objetivo");
 
+        jtNombreDieta.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jtPesoActual.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jtPesoInicial.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jtPesoFinal.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jcbPacienteCargaDieta.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jdcInicio.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jdcFinal.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jbCrearDieta.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbCrearDieta.setText("Crear dieta");
         jbCrearDieta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -546,6 +618,7 @@ public class MainNutriApp extends javax.swing.JFrame {
             }
         });
 
+        jbGuardarModDieta.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbGuardarModDieta.setText("Modificar dieta");
         jbGuardarModDieta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -625,7 +698,7 @@ public class MainNutriApp extends javax.swing.JFrame {
                 .addGroup(cargaDietaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbCrearDieta)
                     .addComponent(jbGuardarModDieta))
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         tabDietas.addTab("Carga datos", cargaDieta);
@@ -634,11 +707,11 @@ public class MainNutriApp extends javax.swing.JFrame {
         dietaComidas.setLayout(dietaComidasLayout);
         dietaComidasLayout.setHorizontalGroup(
             dietaComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1037, Short.MAX_VALUE)
+            .addGap(0, 1077, Short.MAX_VALUE)
         );
         dietaComidasLayout.setVerticalGroup(
             dietaComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 572, Short.MAX_VALUE)
+            .addGap(0, 580, Short.MAX_VALUE)
         );
 
         tabDietas.addTab("Comidas", dietaComidas);
@@ -646,7 +719,9 @@ public class MainNutriApp extends javax.swing.JFrame {
         contenedorTab.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Vistas/relojito_preview_rev_1.png")), tabDietas); // NOI18N
 
         tabComidas.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        tabComidas.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 16)); // NOI18N
 
+        tablaComidas.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         tablaComidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -668,11 +743,13 @@ public class MainNutriApp extends javax.swing.JFrame {
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         jPanel2.setForeground(new java.awt.Color(153, 153, 153));
 
-        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 16)); // NOI18N
         jLabel23.setText("Dietas asociadas:");
 
+        listaDieta.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jScrollPane5.setViewportView(listaDieta);
 
+        jbModDietaComida.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbModDietaComida.setText("Modificar dieta");
         jbModDietaComida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -680,12 +757,8 @@ public class MainNutriApp extends javax.swing.JFrame {
             }
         });
 
+        jbModPacienteComida.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbModPacienteComida.setText("Modificar paciente");
-        jbModPacienteComida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbModPacienteComidaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -707,8 +780,8 @@ public class MainNutriApp extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(27, 27, 27)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(690, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(707, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -724,14 +797,15 @@ public class MainNutriApp extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(42, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(8, 8, 8)))
+                    .addContainerGap(46, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20)))
         );
 
-        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 16)); // NOI18N
         jLabel24.setText("Seleccione una comida para ver más detalles:");
 
+        jbModComida.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jbModComida.setText("Modificar comida");
         jbModComida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -753,12 +827,12 @@ public class MainNutriApp extends javax.swing.JFrame {
                     .addGroup(infoComidasLayout.createSequentialGroup()
                         .addGap(449, 449, 449)
                         .addComponent(jbModComida)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
             .addGroup(infoComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(infoComidasLayout.createSequentialGroup()
                     .addGap(37, 37, 37)
                     .addComponent(jLabel24)
-                    .addContainerGap(654, Short.MAX_VALUE)))
+                    .addContainerGap(652, Short.MAX_VALUE)))
         );
         infoComidasLayout.setVerticalGroup(
             infoComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -774,20 +848,91 @@ public class MainNutriApp extends javax.swing.JFrame {
                 .addGroup(infoComidasLayout.createSequentialGroup()
                     .addGap(33, 33, 33)
                     .addComponent(jLabel24)
-                    .addContainerGap(520, Short.MAX_VALUE)))
+                    .addContainerGap(525, Short.MAX_VALUE)))
         );
 
         tabComidas.addTab("Info comidas", infoComidas);
+
+        jtNombreComida.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jtDetalleComida.setColumns(20);
+        jtDetalleComida.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jtDetalleComida.setRows(5);
+        jScrollPane4.setViewportView(jtDetalleComida);
+
+        jtCaloriasComida.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+
+        jLabel25.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel25.setText("Nombre");
+
+        jLabel26.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel26.setText("Detalle");
+
+        jLabel27.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel27.setText("Calorías");
+
+        jbGuardarComida.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jbGuardarComida.setText("Guardar");
+        jbGuardarComida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarComidaActionPerformed(evt);
+            }
+        });
+
+        jbGuardarModComida.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jbGuardarModComida.setText("Modificar");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1012, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel27))
+                            .addComponent(jLabel25))
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jtCaloriasComida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                .addComponent(jtNombreComida, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(jbGuardarComida)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbGuardarModComida)))
+                .addContainerGap(505, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 572, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtNombreComida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel26)
+                        .addGap(138, 138, 138))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtCaloriasComida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27))
+                .addGap(74, 74, 74)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbGuardarComida)
+                    .addComponent(jbGuardarModComida))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         tabComidas.addTab("Carga datos", jPanel4);
@@ -796,11 +941,11 @@ public class MainNutriApp extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1012, Short.MAX_VALUE)
+            .addGap(0, 1040, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 572, Short.MAX_VALUE)
+            .addGap(0, 580, Short.MAX_VALUE)
         );
 
         tabComidas.addTab("Asignación dieta", jPanel5);
@@ -857,7 +1002,7 @@ public class MainNutriApp extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contenedorTab, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+                .addComponent(contenedorTab)
                 .addContainerGap())
         );
 
@@ -1117,27 +1262,46 @@ public class MainNutriApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jbEditComidasActionPerformed
 
     private void jbModComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModComidaActionPerformed
-        tabComidas.setSelectedIndex(1);
+        if (tablaComidas.getSelectedRow()!=-1) {
+            tabComidas.setSelectedIndex(1);
+            int idC=(Integer)tablaComidas.getValueAt(tablaComidas.getSelectedRow(), 0);
+            modC=cd.buscarComida(idC);
+            jtNombreComida.setText(modC.getNombre());
+            jtDetalleComida.setText(modC.getDetalle());
+            jtCaloriasComida.setText(String.valueOf(modC.getCantCal()));
+            jbGuardarComida.setVisible(false);
+            jbGuardarModComida.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Recuerde seleccionar la comida a modificar", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_jbModComidaActionPerformed
 
     private void jbModDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModDietaComidaActionPerformed
         tabComidas.setSelectedIndex(2);
     }//GEN-LAST:event_jbModDietaComidaActionPerformed
 
-    private void jbModPacienteComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModPacienteComidaActionPerformed
-        tabPacientes.setSelectedIndex(1);
-        modP = (Paciente) jcbPacientes.getSelectedItem();
-        jtNombre.setText(modP.getNombre());
-        jtDomicilio.setText(modP.getDomicilio());
-        jtDni.setText(String.valueOf(modP.getDni()));
-        jtTelefono.setText(String.valueOf(modP.getTel()));
-        jbGuardarMod.setVisible(true);
-        jbGuardar.setVisible(false);
-        jbMod.setEnabled(false);
-        jbEliminar.setEnabled(false);
-        llenarTabla();
-        jcbPacientes.setSelectedIndex(-1);
-    }//GEN-LAST:event_jbModPacienteComidaActionPerformed
+    private void jbGuardarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarComidaActionPerformed
+        Comida c = new Comida();
+        try {
+            if (!jtNombreComida.getText().isEmpty()) {
+                c.setNombre(jtNombreComida.getText());
+            }
+            if (!jtDetalleComida.getText().isEmpty()) {
+                c.setDetalle(jtDetalleComida.getText());
+            }
+            if (!jtCaloriasComida.getText().isEmpty()) {
+                c.setCantCal(Integer.parseInt(jtCaloriasComida.getText()));
+                c.setActivo(true);
+                cd.guardarComida(c);
+                limpiarCargaComida();
+            } else {
+                JOptionPane.showMessageDialog(this, "Uno o más campos se encuentran vacios", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El campo 'Calorías' solo admite números", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jbGuardarComidaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1195,6 +1359,9 @@ public class MainNutriApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1210,12 +1377,15 @@ public class MainNutriApp extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JButton jbCrearDieta;
     private javax.swing.JButton jbEditComidas;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbGuardar;
+    private javax.swing.JButton jbGuardarComida;
     private javax.swing.JButton jbGuardarMod;
+    private javax.swing.JButton jbGuardarModComida;
     private javax.swing.JButton jbGuardarModDieta;
     private javax.swing.JButton jbMod;
     private javax.swing.JButton jbModComida;
@@ -1228,9 +1398,12 @@ public class MainNutriApp extends javax.swing.JFrame {
     private javax.swing.JComboBox<Paciente> jcbPacientes;
     private com.toedter.calendar.JDateChooser jdcFinal;
     private com.toedter.calendar.JDateChooser jdcInicio;
+    private javax.swing.JTextField jtCaloriasComida;
+    private javax.swing.JTextArea jtDetalleComida;
     private javax.swing.JTextField jtDni;
     private javax.swing.JTextField jtDomicilio;
     private javax.swing.JTextField jtNombre;
+    private javax.swing.JTextField jtNombreComida;
     private javax.swing.JTextField jtNombreDieta;
     private javax.swing.JTextField jtPesoActual;
     private javax.swing.JTextField jtPesoFinal;
@@ -1332,5 +1505,11 @@ public class MainNutriApp extends javax.swing.JFrame {
         jdcInicio.setDate(null);
         jdcFinal.setDate(null);
         cargarCombox();
+    }
+
+    private void limpiarCargaComida() {
+        jtNombreComida.setText("");
+        jtDetalleComida.setText("");
+        jtCaloriasComida.setText("");
     }
 }
