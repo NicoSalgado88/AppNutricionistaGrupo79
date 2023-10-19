@@ -122,17 +122,21 @@ public class MainNutriApp extends javax.swing.JFrame {
         jdcFinal = new com.toedter.calendar.JDateChooser();
         jbCrearDieta = new javax.swing.JButton();
         jbGuardarModDieta = new javax.swing.JButton();
+        dietaComidas = new javax.swing.JPanel();
         tabComidas = new javax.swing.JTabbedPane();
         infoComidas = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaComidas = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
         listaDieta = new javax.swing.JList<>();
+        jbModDietaComida = new javax.swing.JButton();
+        jbModPacienteComida = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
-        jTabbedPane4 = new javax.swing.JTabbedPane();
-        jTabbedPane6 = new javax.swing.JTabbedPane();
+        jbModComida = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         SliderLD = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
@@ -466,6 +470,11 @@ public class MainNutriApp extends javax.swing.JFrame {
         jLabel15.setText("Detalle dieta");
 
         jbEditComidas.setText("Editar comidas");
+        jbEditComidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditComidasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout infoDietaLayout = new javax.swing.GroupLayout(infoDieta);
         infoDieta.setLayout(infoDietaLayout);
@@ -621,6 +630,19 @@ public class MainNutriApp extends javax.swing.JFrame {
 
         tabDietas.addTab("Carga datos", cargaDieta);
 
+        javax.swing.GroupLayout dietaComidasLayout = new javax.swing.GroupLayout(dietaComidas);
+        dietaComidas.setLayout(dietaComidasLayout);
+        dietaComidasLayout.setHorizontalGroup(
+            dietaComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1037, Short.MAX_VALUE)
+        );
+        dietaComidasLayout.setVerticalGroup(
+            dietaComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 572, Short.MAX_VALUE)
+        );
+
+        tabDietas.addTab("Comidas", dietaComidas);
+
         contenedorTab.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Vistas/relojito_preview_rev_1.png")), tabDietas); // NOI18N
 
         tabComidas.setTabPlacement(javax.swing.JTabbedPane.LEFT);
@@ -649,53 +671,102 @@ public class MainNutriApp extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel23.setText("Dietas asociadas:");
 
-        jScrollPane4.setViewportView(listaDieta);
+        jScrollPane5.setViewportView(listaDieta);
+
+        jbModDietaComida.setText("Modificar dieta");
+        jbModDietaComida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModDietaComidaActionPerformed(evt);
+            }
+        });
+
+        jbModPacienteComida.setText("Modificar paciente");
+        jbModPacienteComida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModPacienteComidaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(174, 174, 174))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jbModDietaComida)
+                        .addGap(31, 31, 31)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbModPacienteComida)
+                .addGap(33, 33, 33))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(27, 27, 27)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(690, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(139, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbModPacienteComida)
+                    .addComponent(jbModDietaComida))
+                .addGap(10, 10, 10))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(42, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(8, 8, 8)))
         );
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel24.setText("Seleccione una comida para ver más detalles:");
+
+        jbModComida.setText("Modificar comida");
+        jbModComida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModComidaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout infoComidasLayout = new javax.swing.GroupLayout(infoComidas);
         infoComidas.setLayout(infoComidasLayout);
         infoComidasLayout.setHorizontalGroup(
             infoComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoComidasLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(infoComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 978, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGroup(infoComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(infoComidasLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(infoComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 978, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(infoComidasLayout.createSequentialGroup()
+                        .addGap(449, 449, 449)
+                        .addComponent(jbModComida)))
+                .addContainerGap(7, Short.MAX_VALUE))
             .addGroup(infoComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(infoComidasLayout.createSequentialGroup()
                     .addGap(37, 37, 37)
                     .addComponent(jLabel24)
-                    .addContainerGap(675, Short.MAX_VALUE)))
+                    .addContainerGap(654, Short.MAX_VALUE)))
         );
         infoComidasLayout.setVerticalGroup(
             infoComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoComidasLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jbModComida)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -708,11 +779,34 @@ public class MainNutriApp extends javax.swing.JFrame {
 
         tabComidas.addTab("Info comidas", infoComidas);
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1012, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 572, Short.MAX_VALUE)
+        );
+
+        tabComidas.addTab("Carga datos", jPanel4);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1012, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 572, Short.MAX_VALUE)
+        );
+
+        tabComidas.addTab("Asignación dieta", jPanel5);
+
         contenedorTab.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Vistas/comida_preview_rev_1.png")), tabComidas); // NOI18N
         tabComidas.getAccessibleContext().setAccessibleName("");
-
-        contenedorTab.addTab("tab1", jTabbedPane4);
-        contenedorTab.addTab("tab1", jTabbedPane6);
 
         SliderLD.setMajorTickSpacing(2);
         SliderLD.setMaximum(2);
@@ -1018,6 +1112,33 @@ public class MainNutriApp extends javax.swing.JFrame {
         listaDieta.setListData(dietas);
     }//GEN-LAST:event_tablaComidasMouseClicked
 
+    private void jbEditComidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditComidasActionPerformed
+        tabDietas.setSelectedIndex(2);
+    }//GEN-LAST:event_jbEditComidasActionPerformed
+
+    private void jbModComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModComidaActionPerformed
+        tabComidas.setSelectedIndex(1);
+    }//GEN-LAST:event_jbModComidaActionPerformed
+
+    private void jbModDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModDietaComidaActionPerformed
+        tabComidas.setSelectedIndex(2);
+    }//GEN-LAST:event_jbModDietaComidaActionPerformed
+
+    private void jbModPacienteComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModPacienteComidaActionPerformed
+        tabPacientes.setSelectedIndex(1);
+        modP = (Paciente) jcbPacientes.getSelectedItem();
+        jtNombre.setText(modP.getNombre());
+        jtDomicilio.setText(modP.getDomicilio());
+        jtDni.setText(String.valueOf(modP.getDni()));
+        jtTelefono.setText(String.valueOf(modP.getTel()));
+        jbGuardarMod.setVisible(true);
+        jbGuardar.setVisible(false);
+        jbMod.setEnabled(false);
+        jbEliminar.setEnabled(false);
+        llenarTabla();
+        jcbPacientes.setSelectedIndex(-1);
+    }//GEN-LAST:event_jbModPacienteComidaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1051,6 +1172,7 @@ public class MainNutriApp extends javax.swing.JFrame {
     private javax.swing.JPanel cargaDieta;
     private javax.swing.JPanel cargaPaciente;
     private javax.swing.JTabbedPane contenedorTab;
+    private javax.swing.JPanel dietaComidas;
     private javax.swing.JLabel fechaFin;
     private javax.swing.JLabel fechaInicio;
     private javax.swing.JPanel infoComidas;
@@ -1083,12 +1205,12 @@ public class MainNutriApp extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTabbedPane jTabbedPane6;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JButton jbCrearDieta;
     private javax.swing.JButton jbEditComidas;
     private javax.swing.JButton jbEliminar;
@@ -1096,7 +1218,10 @@ public class MainNutriApp extends javax.swing.JFrame {
     private javax.swing.JButton jbGuardarMod;
     private javax.swing.JButton jbGuardarModDieta;
     private javax.swing.JButton jbMod;
+    private javax.swing.JButton jbModComida;
     private javax.swing.JButton jbModDieta;
+    private javax.swing.JButton jbModDietaComida;
+    private javax.swing.JButton jbModPacienteComida;
     private javax.swing.JButton jbReinicio;
     private javax.swing.JComboBox<Paciente> jcbPacienteCargaDieta;
     private javax.swing.JComboBox<Paciente> jcbPacienteDieta;
