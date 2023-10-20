@@ -1143,7 +1143,7 @@ public class MainNutriApp extends javax.swing.JFrame {
                 jbMod.setEnabled(true);
                 jbEliminar.setEnabled(true);
                 modelo.setRowCount(0);
-                Paciente pac = (Paciente) jcbPacientes.getSelectedItem();
+                 Paciente pac = (Paciente) jcbPacientes.getSelectedItem();
                 for (Paciente p : pd.listarPaciente()) {
                     if (p.getIdPaciente() == pac.getIdPaciente()) {
                         modelo.addRow(new Object[]{
