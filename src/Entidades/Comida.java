@@ -69,4 +69,17 @@ public class Comida {
         return "Comida{" + "idComida=" + idComida + ", cantCal=" + cantCal + ", nombre=" + nombre + ", detalle=" + detalle + ", activo=" + activo + '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Comida otraComida = (Comida) obj;
+        return idComida == otraComida.idComida;
+    }
+
 }

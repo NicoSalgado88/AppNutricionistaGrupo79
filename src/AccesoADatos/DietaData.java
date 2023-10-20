@@ -200,4 +200,34 @@ public class DietaData {
         }
         return sinDieta;
     }
+
+    public List<Dieta> listarDietas() {
+        String sql = "SELECT * FROM `dieta` WHERE estado=1";
+        ArrayList<Dieta> dietas = new ArrayList<>();
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Dieta d = new Dieta();
+                Paciente p = new Paciente();
+                d.setIdDieta(rs.getInt("idDieta"));
+                d.setNombre(rs.getString("nombre"));
+                d.setPaciente(p);
+                p.setIdPaciente(rs.getInt("idPaciente"));
+                d.setfInicio(rs.getDate("fechaInicial").toLocalDate());
+                d.setfFin(rs.getDate("fechaFinal").toLocalDate());
+                d.setpInicial(rs.getDouble("pesoInicial"));
+                d.setpFinal(rs.getDouble("pesoFinal"));
+                d.setpActual(rs.getDouble("pesoActual"));
+                d.setActivo(rs.getBoolean("estado"));
+                dietas.add(d);
+            }
+            ps.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla Dieta-Comida");
+        }
+        return dietas;
+    }
 }
