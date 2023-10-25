@@ -132,4 +132,27 @@ public class DCData {
         }
         return dietas;
     }
+
+    public DietaComida buscarDC(int idDieta, int idComida) {
+        String sql = "SELECT idDC FROM dietacomida WHERE idDieta=? AND idComida=?";
+        DietaComida dc = null;
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idDieta);
+            ps.setInt(2, idComida);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                dc = new DietaComida();
+                dc.setIdDC(rs.getInt("idDC"));
+            } else {
+                JOptionPane.showMessageDialog(null, "La relación Dieta-Comida no existe");
+            }
+            ps.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla DietaComida");
+        }
+        return dc;
+    }
 }
