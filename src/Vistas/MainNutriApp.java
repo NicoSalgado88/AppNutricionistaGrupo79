@@ -3,7 +3,7 @@ package Vistas;
 import AccesoADatos.*;
 import Entidades.*;
 //import Entidades.Telefono;
-import com.formdev.flatlaf.FlatLightLaf;
+import  com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
 import java.awt.event.ItemEvent;
 import java.sql.Date;
