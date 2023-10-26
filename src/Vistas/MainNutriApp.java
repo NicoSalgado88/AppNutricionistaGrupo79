@@ -176,11 +176,9 @@ public class MainNutriApp extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         cabecera = new javax.swing.JPanel();
         SliderLD = new javax.swing.JSlider();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(1125, 713));
 
         contenedorTab.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -1072,8 +1070,6 @@ public class MainNutriApp extends javax.swing.JFrame {
         SliderLD.setValue(1);
         SliderLD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/img/icon_4968-removebg-preview.png"))); // NOI18N
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Clinica de nutrición (1)_preview_rev_1.png"))); // NOI18N
 
         javax.swing.GroupLayout cabeceraLayout = new javax.swing.GroupLayout(cabecera);
@@ -1084,18 +1080,14 @@ public class MainNutriApp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SliderLD, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addComponent(SliderLD, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
         cabeceraLayout.setVerticalGroup(
             cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cabeceraLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SliderLD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1391,14 +1383,14 @@ public class MainNutriApp extends javax.swing.JFrame {
 
     private void jbModDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModDietaComidaActionPerformed
         if (listaDieta.getSelectedIndex() != -1) {
-            Dieta d = null;
+            int i = 0;
             for (Dieta f : dd.listarDietas()) {
                 if (f.getNombre().equalsIgnoreCase(listaDieta.getSelectedValue())) {
-                    d = f;
-                    jcbDietaComida.setSelectedItem(f);
+                    jcbDietaComida.setSelectedIndex(i);
                     tabComidas.setSelectedIndex(2);
                     break;
                 }
+                i++;
             }
         } else {
             JOptionPane.showMessageDialog(this, "Recuerde seleccionar una dieta a modificar", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1574,7 +1566,6 @@ public class MainNutriApp extends javax.swing.JFrame {
     private javax.swing.JPanel infoComidas;
     private javax.swing.JPanel infoDieta;
     private javax.swing.JPanel infoPaciente;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
