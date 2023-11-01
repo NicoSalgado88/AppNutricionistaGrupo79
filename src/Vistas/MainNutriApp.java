@@ -1662,7 +1662,7 @@ public class MainNutriApp extends javax.swing.JFrame {
     private javax.swing.JToggleButton tema;
     // End of variables declaration//GEN-END:variables
 
-    private void head() {
+     private void head() { 
         modelo.addColumn("Id Paciente");
         modelo.addColumn("Nombre");
         modelo.addColumn("DNI");
