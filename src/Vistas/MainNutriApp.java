@@ -3,12 +3,17 @@ package Vistas;
 import AccesoADatos.*;
 import Entidades.*;
 //import Entidades.Telefono;
-import  com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatMonokaiProIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatSolarizedDarkIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
 import java.awt.event.ItemEvent;
 import java.sql.Date;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
@@ -175,8 +180,8 @@ public class MainNutriApp extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         cabecera = new javax.swing.JPanel();
-        SliderLD = new javax.swing.JSlider();
         jLabel3 = new javax.swing.JLabel();
+        tema = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1125, 713));
@@ -1056,15 +1061,15 @@ public class MainNutriApp extends javax.swing.JFrame {
         contenedorTab.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Vistas/comida_preview_rev_1.png")), tabComidas); // NOI18N
         tabComidas.getAccessibleContext().setAccessibleName("");
 
-        SliderLD.setMajorTickSpacing(2);
-        SliderLD.setMaximum(2);
-        SliderLD.setMinimum(1);
-        SliderLD.setMinorTickSpacing(1);
-        SliderLD.setSnapToTicks(true);
-        SliderLD.setValue(1);
-        SliderLD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Clinica de nutrición (1)_preview_rev_1.png"))); // NOI18N
+
+        tema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/img/icon_4968-removebg-preview.png"))); // NOI18N
+        tema.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tema.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                temaStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout cabeceraLayout = new javax.swing.GroupLayout(cabecera);
         cabecera.setLayout(cabeceraLayout);
@@ -1074,17 +1079,20 @@ public class MainNutriApp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SliderLD, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addComponent(tema)
+                .addGap(44, 44, 44))
         );
         cabeceraLayout.setVerticalGroup(
             cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cabeceraLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SliderLD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cabeceraLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cabeceraLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(tema)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1097,7 +1105,7 @@ public class MainNutriApp extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(cabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cabecera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(contenedorTab)
                 .addContainerGap())
@@ -1519,6 +1527,12 @@ public class MainNutriApp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbAgregarComidaActionPerformed
 
+    private void temaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_temaStateChanged
+        boolean valor=tema.isSelected();
+        actualizarEstilo(valor);
+    }//GEN-LAST:event_temaStateChanged
+
+    
     /**
      * @param args the command line arguments
      */
@@ -1548,7 +1562,6 @@ public class MainNutriApp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSlider SliderLD;
     private javax.swing.JPanel asignarComidas;
     private javax.swing.JPanel cabecera;
     private javax.swing.JPanel cargaComida;
@@ -1646,6 +1659,7 @@ public class MainNutriApp extends javax.swing.JFrame {
     private javax.swing.JTable tablaComidaPaciente;
     private javax.swing.JTable tablaComidas;
     private javax.swing.JTable tablaPacientes;
+    private javax.swing.JToggleButton tema;
     // End of variables declaration//GEN-END:variables
 
     private void head() {
@@ -1657,6 +1671,30 @@ public class MainNutriApp extends javax.swing.JFrame {
         tablaPacientes.setModel(modelo);
         llenarTabla();
     }
+    
+    private void actualizarEstilo(boolean tema){
+        if(!tema){
+            try{
+                UIManager.setLookAndFeel(new FlatLightLaf());
+                FlatSolarizedLightIJTheme.setup();
+                UIManager.put("Button.arc", 999);
+                UIManager.put("Component.arc", 999);
+                UIManager.put("TextComponent.arc", 999);
+                SwingUtilities.updateComponentTreeUI(this);
+            }catch(Exception ex){
+            System.err.println("Failed to update LaF");}
+        }else{
+            try{
+                UIManager.setLookAndFeel(new FlatLightLaf());
+                FlatArcDarkOrangeIJTheme.setup();
+                UIManager.put("Button.arc", 999);
+                UIManager.put("Component.arc", 999);
+                UIManager.put("TextComponent.arc", 999);
+                SwingUtilities.updateComponentTreeUI(this);
+            }catch(Exception ex){
+            System.err.println("Failed to update LaF");
+            }
+    } }
 
     private void headComidaPaciente() {
         modeloComidaPaciente.addColumn("Nombre");
